@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelAddIn4", "ExcelAddIn4\ExcelAddIn4.csproj", "{0727932B-1C52-4746-B653-D7642EA7FEAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0727932B-1C52-4746-B653-D7642EA7FEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0727932B-1C52-4746-B653-D7642EA7FEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0727932B-1C52-4746-B653-D7642EA7FEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0727932B-1C52-4746-B653-D7642EA7FEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+.email
+*.mexw32
+*.pyc
+*.bak
+*.user
+*.suo
+
+ExcelAddIn4/bin/*
+ExcelAddIn4/obj/*
