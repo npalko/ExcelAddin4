@@ -1,7 +1,5 @@
 ﻿/* pg 702
  * 
- * GENERAL QUESTIONS
- *  - how to open/close application task plane from excel?
  * 
  * DESIGNER QUESTIONS
  *  - does the designer automatically add hooks for winform events into its
@@ -14,8 +12,28 @@
  * 
  * 
  * 
-
-*/
+ * 
+ * Globals class is used to interact with Ribbon
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Architecture:
+ * ThisAddIn
+ *      CustomTaskPlane
+ *          UserControl1 (sliders)
+ *      Ribbon
+ * 
+ * 
+ * 
+ * Ah-Hahs:
+ * * double cick on winform components to generate events
+ * 
+ */
 
 
 using System;
@@ -36,26 +54,26 @@ namespace ExcelAddIn4
 
         // Application.StatusBar = string
 
-
-        //UserControl control;
-        Microsoft.Office.Tools.CustomTaskPane pane;
+        UserControl1 control;
+        public Microsoft.Office.Tools.CustomTaskPane pane;
         //Button button;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            //control = new UserControl();
+            control = new UserControl1();
+
             //button = new Button();
             //button.Text = "Hello";
             // button.Text = Application.ActiveWorkbook.name
             //control.Controls.Add(button);
-            //pane = CustomTaskPanes.Add(control, "Test Pane");
 
-            pane = CustomTaskPanes.Add(new UserControl1(), "my pane");
-
+            pane = CustomTaskPanes.Add(control, "my pane");
             pane.Visible = true;
 
-            Excel.Range r1 = Application.get_Range("A1", missing);
-            r1.Value2 = 8;
+
+
+            //Excel.Range r1 = Application.get_Range("A1", missing);
+            //r1.Value2 = 8;
 
 
             // Application.WindowActivate += 
@@ -63,13 +81,17 @@ namespace ExcelAddIn4
             //  Application_WindowActivate)
         }
 
+        public void setCell(string cell, int value)
+        {
+            Excel.Range r = Application.get_Range(cell, missing);
+            r.Value2 = value;
+        }
+
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
-
         private void button_Click(object sender, System.EventArgs e)
         {
-
         }
 
  //       private void Application_WindowActivate(Excel.Workbook Wb, Excel.Window Wn)

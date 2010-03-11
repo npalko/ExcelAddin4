@@ -16,8 +16,30 @@ namespace ExcelAddIn4
             InitializeComponent();
         }
 
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.setCell("A1", trackBar1.Value);
+        }
 
-        // trackBar1 .. 5
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.setCell("B1", trackBar2.Value);
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.setCell("C1", trackBar3.Value);
+        }
+
+        private void trackBar4_Scroll(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.setCell("D1", trackBar4.Value);
+        }
+
+        private void trackBar5_Scroll(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.setCell("E1", trackBar5.Value);
+        }
 
 
     }

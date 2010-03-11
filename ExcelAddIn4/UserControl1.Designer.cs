@@ -49,6 +49,7 @@
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar1.Size = new System.Drawing.Size(42, 194);
             this.trackBar1.TabIndex = 0;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // trackBar2
             // 
@@ -57,6 +58,7 @@
             this.trackBar2.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar2.Size = new System.Drawing.Size(42, 194);
             this.trackBar2.TabIndex = 1;
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // trackBar3
             // 
@@ -65,6 +67,7 @@
             this.trackBar3.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar3.Size = new System.Drawing.Size(42, 194);
             this.trackBar3.TabIndex = 2;
+            this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // trackBar4
             // 
@@ -73,14 +76,18 @@
             this.trackBar4.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar4.Size = new System.Drawing.Size(42, 194);
             this.trackBar4.TabIndex = 3;
+            this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
             // 
             // trackBar5
             // 
             this.trackBar5.Location = new System.Drawing.Point(147, 13);
+            this.trackBar5.Maximum = 100;
             this.trackBar5.Name = "trackBar5";
             this.trackBar5.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar5.Size = new System.Drawing.Size(42, 194);
             this.trackBar5.TabIndex = 4;
+            this.trackBar5.TickFrequency = 10;
+            this.trackBar5.Scroll += new System.EventHandler(this.trackBar5_Scroll);
             // 
             // groupBox1
             // 
