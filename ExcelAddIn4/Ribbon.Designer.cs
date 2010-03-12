@@ -1,6 +1,6 @@
 ﻿namespace ExcelAddIn4
 {
-    partial class Ribbon1
+    partial class Ribbon
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             // group1
             // 
             this.group1.Items.Add(this.togglePane);
-            this.group1.Label = "group1";
+            this.group1.Label = "ExcelAddIn4";
             this.group1.Name = "group1";
             // 
             // togglePane
@@ -54,9 +54,9 @@
             this.togglePane.Name = "togglePane";
             this.togglePane.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.togglePane_Click);
             // 
-            // Ribbon1
+            // Ribbon
             // 
-            this.Name = "Ribbon1";
+            this.Name = "Ribbon";
             this.RibbonType = "Microsoft.Excel.Workbook";
             this.Tabs.Add(this.tab1);
             this.Load += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonUIEventArgs>(this.Ribbon1_Load);
@@ -77,9 +77,9 @@
 
     partial class ThisRibbonCollection : Microsoft.Office.Tools.Ribbon.RibbonReadOnlyCollection
     {
-        internal Ribbon1 Ribbon1
+        internal Ribbon Ribbon1
         {
-            get { return this.GetRibbon<Ribbon1>(); }
+            get { return this.GetRibbon<Ribbon>(); }
         }
     }
 }

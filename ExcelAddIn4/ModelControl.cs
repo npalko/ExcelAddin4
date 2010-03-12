@@ -9,12 +9,17 @@ using System.Windows.Forms;
 
 namespace ExcelAddIn4
 {
-    public partial class UserControl1 : UserControl
+    public partial class ModelControl : UserControl
     {
-        public UserControl1()
+        public ModelControl()
         {
             InitializeComponent();
         }
+        public void UpdateWorkbookName(string wbName)
+        {
+            workbookLabel.Text = wbName;
+        }
+
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -41,6 +46,15 @@ namespace ExcelAddIn4
             Globals.ThisAddIn.setCell("E1", trackBar5.Value);
         }
 
+        private void trackBar6_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

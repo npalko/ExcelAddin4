@@ -1,10 +1,9 @@
 ﻿/* pg 702
  * 
  * 
- * DESIGNER QUESTIONS
- *  - does the designer automatically add hooks for winform events into its
- *  region?
- * hooks for windows forms events: in parital class (*.designer.cs)?
+
+ * 
+ * 
  * 
  * 
  * 
@@ -33,6 +32,15 @@
  * Ah-Hahs:
  * * double cick on winform components to generate events
  * 
+ * 
+ * Code Snips:
+ * 
+ * Application.StatusBar = string
+ * 
+ * Working with ranges (pg 203, 219):
+ *  Excel.Range r1 = Application.get_Range("A1", missing);
+ *  r1.Value2 = 8;
+ * 
  */
 
 
@@ -46,40 +54,24 @@ namespace ExcelAddIn4
     public partial class ThisAddIn
     {
 
-        // pg 203 - named ranges
-        // pg 219 - ranges
-
-        // 
-        // 
-
-        // Application.StatusBar = string
-
-        UserControl1 control;
-        public Microsoft.Office.Tools.CustomTaskPane pane;
-        //Button button;
+        Microsoft.Office.Tools.CustomTaskPane pane;
+        ModelControl modelControl;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            control = new UserControl1();
-
-            //button = new Button();
-            //button.Text = "Hello";
-            // button.Text = Application.ActiveWorkbook.name
-            //control.Controls.Add(button);
-
-            pane = CustomTaskPanes.Add(control, "my pane");
-            pane.Visible = true;
+            modelControl = new ModelControl();
+            pane = CustomTaskPanes.Add(modelControl, "ExcelAddIn4");
 
 
-
-            //Excel.Range r1 = Application.get_Range("A1", missing);
-            //r1.Value2 = 8;
-
-
-            // Application.WindowActivate += 
-            //  new Excel.AppEvents_WindowActivateEventHandler(
-            //  Application_WindowActivate)
+            Application.WindowActivate +=
+                new Excel.AppEvents_WindowActivateEventHandler(
+                Application_WindowActivate);
         }
+        public void PaneVisibleToggle()
+        {
+            pane.Visible = !pane.Visible;
+        }
+
 
         public void setCell(string cell, int value)
         {
@@ -87,23 +79,20 @@ namespace ExcelAddIn4
             r.Value2 = value;
         }
 
+
+
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
-        private void button_Click(object sender, System.EventArgs e)
+
+        private void Application_WindowActivate(Excel.Workbook Wb, Excel.Window Wn)
         {
+            // called whenever a different workbook is selected
+            modelControl.UpdateWorkbookName(Wb.Name);
+
+            // whever we switch worksheets, move the worksheet values into
+            // the toggle
         }
-
- //       private void Application_WindowActivate(Excel.Workbook Wb, Excel.Window Wn)
- //       {
-            // changes button text whenever a different workbook is selected
-            // within the excel instance
-
- //           button.Text = Wb.Name;
-//        }
-
-        // to add to internal startup:
-        // this.button.Click += new System.EventHanlder(this.button_Click);
 
         #region VSTO generated code
 

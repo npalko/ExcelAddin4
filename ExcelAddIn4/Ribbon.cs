@@ -6,9 +6,9 @@ using Microsoft.Office.Tools.Ribbon;
 
 namespace ExcelAddIn4
 {
-    public partial class Ribbon1 : OfficeRibbon
+    public partial class Ribbon : OfficeRibbon
     {
-        public Ribbon1()
+        public Ribbon()
         {
             InitializeComponent();
         }
@@ -22,9 +22,7 @@ namespace ExcelAddIn4
 
             // is this the best way to handle the event?
 
-            bool currentState = Globals.ThisAddIn.pane.Visible;
-            Globals.ThisAddIn.pane.Visible = !currentState;
-
+            Globals.ThisAddIn.PaneVisibleToggle();
         }
     }
 }
